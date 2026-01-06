@@ -2,8 +2,14 @@ import express from 'express';
 import mongoose from 'mongoose';
 import cors from 'cors';
 import Model from './Models/Koders.js'; 
+import dotenv from "dotenv";
 
-const PORT = 8000;
+
+dotenv.config();
+
+
+const PORT = process.env.PORT || 8000;
+
 const app = express();
 
 app.use(cors());
@@ -11,7 +17,7 @@ app.use(express.json());
 
 
 
-mongoose.connect('mongodb://127.0.0.1:27017/taskmanager');      
+mongoose.connect(process.env.MONGO_URI );      
 
 
 app.post('/', (req, res) => {
