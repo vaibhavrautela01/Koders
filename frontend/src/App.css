@@ -11,6 +11,10 @@
     outline: none;
 }
 
+body {
+  overflow-x: hidden;
+}
+
 .create_form button{
     padding: 10px;
     background-color: black;

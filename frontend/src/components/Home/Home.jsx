@@ -25,7 +25,8 @@ function Index() {
     const fetchTodos = () => {
 
 
-        axios.get('http://localhost:8000/get')      
+        axios.get("https://koders-m8fj.onrender.com/get")
+     
 
 
             .then(result => {
@@ -45,8 +46,7 @@ function Index() {
     
     const handleDelete = (id) => {
 
-        axios.delete(`http://localhost:8000/delete/${id}`)
-        
+axios.delete(`https://koders-m8fj.onrender.com/delete/${id}`)        
             .then(response => {
                 setTodos(prevTodos => prevTodos.filter(t => t._id !== id));
             })
@@ -99,7 +99,7 @@ useEffect(() => {
                                     <div>Status: {todo.status}</div>
 
 
-                                    <input type='submit' value={"Edit"} id="i" onClick={() => handleEdit(todo._id)} />     
+                                    <input type='submit' value={"Edit"} id="i"  />     
 
                                     <input type='submit' value={"Delete"} id="i" onClick={() => handleDelete(todo._id)} />     
 
@@ -111,27 +111,7 @@ useEffect(() => {
             </div>
 
 
-            {selectedTodo && (
-                <div className='update-form'>
-                    <h4>Update Task</h4>
-
-                    <label>
-                        Title:
-                        <input type="text" value={updateTitle} onChange={(e) => setUpdateTitle(e.target.value)} />     
-                    </label>
-
-                    <label>
-                        Description:
-                        <input type="text" value={updateDescription} onChange={(e) => setUpdateDescription(e.target.value)} />
-                    </label>
-
-
-
-                    <button onClick={() => setSelectedTodo(null)}>Cancel</button>
-
-
-                </div>
-            )}
+            
         </div>
     );
 }

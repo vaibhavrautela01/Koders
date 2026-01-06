@@ -20,9 +20,9 @@ function Create({ addNewTask }) {
 
   const handleSubmit = async (e) => {
 
-
+ e.preventDefault();
    
-      const response = await fetch("http://localhost:8000/", {
+      const response = await fetch("https://koders-m8fj.onrender.com/", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -53,11 +53,11 @@ function Create({ addNewTask }) {
     <form onSubmit={handleSubmit}>
 
       <div className="createPageTitle">
-      Title:<input type="text" value={title} onChange={(e) => setTitle(e.target.value)} placeholder="Title" class="v"/>
+      Title:<input type="text" value={title} onChange={(e) => setTitle(e.target.value)} placeholder="Title" className="v"/>
       </div>
 
       <div className="createPageDescription">
-      Description:<input type="text" value={description} onChange={(e) => setDescription(e.target.value)} placeholder="Description" class="v"/>
+      Description:<input type="text" value={description} onChange={(e) => setDescription(e.target.value)} placeholder="Description" className="v"/>
       </div>
 {/* ---------------------------------------------------------------------------------------------       */}
       
